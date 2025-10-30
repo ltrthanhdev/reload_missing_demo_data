@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="reload_missing_data_session_view_list" model="ir.ui.view">
+            <field name="name">reload_missing_data_session_view_list</field>
+            <field name="model">reload.missing_data.session</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="module_name"/>
+                    <field name="user_id"/>
+                    <field name="trigger_time"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="reload_missing_data_session_view_form" model="ir.ui.view">
+            <field name="name">reload_missing_data_session_view_form</field>
+            <field name="model">reload.missing_data.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_reload_demo_data"
+                                icon="fa-database"
+                                type="object"
+                                class="btn btn-primary"
+                                invisible="not active"
+                                string="Trigger"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="module_name"/>
+                            <h1>
+                                <field name="module_name" placeholder="e.g. base" readonly="not active"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="user_id" readonly="1"/>
+                                <field name="active" widget="boolean_toggle" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="trigger_time" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="reload_missing_data_session_action" model="ir.actions.act_window">
+            <field name="name">Reload Demo Data Session</field>
+            <field name="res_model">reload.missing_data.session</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="reload_missing_data_session_menu"
+                  name="Reload Demo Data Session"
+                  action="reload_missing_demo_data.reload_missing_data_session_action"
+                  sequence="36"
+                  parent="base.next_id_6"
+        />
+    </data>
+</odoo>
