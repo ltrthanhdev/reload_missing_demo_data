@@ -54,7 +54,7 @@ class ReloadMissingDataSession(models.Model):
         if self.module_name:
             target_module = installed_modules.filtered(lambda im: im.name == self.module_name)
             target_dependencies = _get_dependencies(
-                root_module=target_module, accumulator=set(self.module_name), root_modules=installed_modules
+                root_module=target_module, accumulator=[self.module_name], root_modules=installed_modules
             )
             installed_modules = installed_modules.filtered(lambda im: im.name in target_dependencies)
 
