@@ -7,7 +7,7 @@
         'mail',
     ],
     'application': False,
-    'version': '18.0.0.0.1',
+    'version': '18.0.0.0.2',
     'license': 'AGPL-3',
     'support': 'ltrthanh.dev@gmail.com',
     'installable': True,
