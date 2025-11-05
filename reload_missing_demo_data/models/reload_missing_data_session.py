@@ -44,7 +44,7 @@ class ReloadMissingDataSession(models.Model):
             for dep in root_module.dependencies_id:
                 dep_mod = root_modules.filtered(lambda im: im.name == dep.name)
                 if dep_mod and dep_mod.name not in accumulator:
-                    accumulator.add(dep_mod.name)
+                    accumulator.append(dep_mod.name)
                     _get_dependencies(root_module=dep_mod, accumulator=accumulator, root_modules=root_modules)
             return accumulator
 
